@@ -22,8 +22,6 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinx_rtd_theme",
     "myst_parser",
-
-    "sphinxcontrib.youtube",
 ]
 
 templates_path = ['_templates']
