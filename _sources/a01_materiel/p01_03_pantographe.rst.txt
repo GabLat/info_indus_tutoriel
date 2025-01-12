@@ -36,3 +36,5 @@ Afin de le recréer en URDF, il faut le modèle 3D de chaque corps. Il faut rens
    #. :download:`link2.dae <cad/link2.dae>`
    #. :download:`link3.dae <cad/link3.dae>`
    #. :download:`link4.dae <cad/link4.dae>`
+
+En cas de problème de téléchargement, les fichiers sont disponibles sur ce `dépôt GitHub <https://github.com/yguel/informatique_industrielle_avec_ROS2>`_.
