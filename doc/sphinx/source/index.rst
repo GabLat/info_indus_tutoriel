@@ -1,5 +1,5 @@
 ****************************************
-Tutoriel Informatique Industrielle
+Tutoriel Informatique Industrielle MIQ5
 ****************************************
 
 .. toctree::
