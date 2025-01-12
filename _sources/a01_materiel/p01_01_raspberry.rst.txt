@@ -2,7 +2,7 @@
 Raspberry PI 5
 ***************
 
-Ce projet utilise un Raspberry PI 5 comme carte de développement principale
+Ce projet utilise un Raspberry PI 5 comme carte de développement principale.
 
 .. figure:: img/Raspberry_Pi5.png
     :align: center
