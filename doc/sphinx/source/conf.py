@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Informatique Industrielle'
+project = 'Informatique Industrielle MIQ5'
 copyright = '2025, Julien JUANOLA, Gabriel LATOUR, Thibaut MAETZ'
 author = 'Julien JUANOLA, Gabriel LATOUR, Thibaut MAETZ'
 release = '14/01/2025'
