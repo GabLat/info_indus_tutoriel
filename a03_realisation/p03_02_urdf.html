@@ -92,6 +92,226 @@ Comme expliqué dans la section <a class="reference internal" href="../a01_mater
 Cette description s’inscrit dans la balise <code class="docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code> qui permet de décrire la géométrie du corps.
 La balise <code class="docutils literal notranslate"><span class="pre">&lt;collision&gt;</span></code> permet de décrire la géométrie du corps pour les calculs de collision. Afin de simplifier les calculs nous utilisons un maillage en format DAE correspondant à un volume simple qui contient le corps.
 Ceci permet en plus de simplifier le calcul d’assurer que le robot ne rentre pas en collision car son enveloppe sera plus grande que sa géométrie réelle.</p>
+<p>Les fichiers ont été regroupés dans un fichier URDF.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="err">&lt;?xml</span><span class="w"> </span><span class="err">versio</span><span class="kc">n</span><span class="err">=</span><span class="s2">&quot;1.0&quot;</span><span class="err">?&gt;</span>
+</pre></div>
+</div>
+<p>&lt;robot name=”Pentograph”&gt;</p>
+<blockquote>
+<div><p>&lt;!– Fixation du robot à ‘base_link’ –&gt;
+&lt;link name=”map”/&gt;</p>
+<p>&lt;!– Base Link –&gt;
+&lt;link name=”base”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;visual&gt;</dt><dd><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”base.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.025”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/visual&gt;
+&lt;inertial&gt;</p>
+<blockquote>
+<div><p>&lt;mass value=”1” /&gt;
+&lt;origin xyz=”0 0 0.025” rpy=”0 0 0” /&gt;
+&lt;inertia ixx=”1” ixy=”0” ixz=”0” iyy=”1” iyz=”0” izz=”1” /&gt;</p>
+</div></blockquote>
+<p>&lt;/inertial&gt;
+&lt;collision&gt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”base.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.025”/&gt;</p>
+</div></blockquote>
+<p>&lt;/collision&gt;</p>
+</div></blockquote>
+<p>&lt;/link&gt;</p>
+<dl class="simple">
+<dt>&lt;joint name=”base2world” type=”fixed”&gt;</dt><dd><p>&lt;parent link=”map”/&gt;
+&lt;child link=”base”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/joint&gt;</p>
+<p>&lt;!– Revolute Joint 1 –&gt;
+&lt;link name=”link1”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;visual&gt;</dt><dd><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link1.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/visual&gt;
+&lt;inertial&gt;</p>
+<blockquote>
+<div><p>&lt;mass value=”0.5” /&gt;
+&lt;origin xyz=”0 0 0.05” rpy=”0 0 0” /&gt;
+&lt;inertia ixx=”0.5” ixy=”0” ixz=”0” iyy=”0.5” iyz=”0” izz=”0.5” /&gt;</p>
+</div></blockquote>
+<p>&lt;/inertial&gt;
+&lt;collision&gt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link1.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</div></blockquote>
+<p>&lt;/collision&gt;</p>
+</div></blockquote>
+<p>&lt;/link&gt;</p>
+<dl class="simple">
+<dt>&lt;joint name=”joint1” type=”revolute”&gt;</dt><dd><p>&lt;parent link=”base”/&gt;
+&lt;child link=”link1”/&gt;
+&lt;origin xyz=”0 0 0.05”/&gt;
+&lt;limit effort=”1000.0” lower=”-1.57” upper=”1.57” velocity=”0.5”/&gt;
+&lt;axis xyz=”0 0 1”/&gt;
+&lt;dynamics damping=”0.2” friction=”0.1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/joint&gt;</p>
+<p>&lt;!– Revolute Joint 2 –&gt;
+&lt;link name=”link2”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;visual&gt;</dt><dd><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link2.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/visual&gt;
+&lt;inertial&gt;</p>
+<blockquote>
+<div><p>&lt;mass value=”0.5” /&gt;
+&lt;origin xyz=”0 0 0.05” rpy=”0 0 0” /&gt;
+&lt;inertia ixx=”0.5” ixy=”0” ixz=”0” iyy=”0.5” iyz=”0” izz=”0.5” /&gt;</p>
+</div></blockquote>
+<p>&lt;/inertial&gt;
+&lt;collision&gt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link2.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</div></blockquote>
+<p>&lt;/collision&gt;</p>
+</div></blockquote>
+<p>&lt;/link&gt;</p>
+<dl class="simple">
+<dt>&lt;joint name=”joint2” type=”revolute”&gt;</dt><dd><p>&lt;parent link=”link1”/&gt;
+&lt;child link=”link2”/&gt;
+&lt;origin xyz=”0 0 0.05”/&gt;
+&lt;limit effort=”1000.0” lower=”-1.57” upper=”1.57” velocity=”0.5”/&gt;
+&lt;axis xyz=”0 0 1”/&gt;
+&lt;dynamics damping=”0.2” friction=”0.1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/joint&gt;</p>
+<p>&lt;!– Revolute Joint 3 –&gt;
+&lt;link name=”link3”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;visual&gt;</dt><dd><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link3.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/visual&gt;
+&lt;inertial&gt;</p>
+<blockquote>
+<div><p>&lt;mass value=”0.5” /&gt;
+&lt;origin xyz=”0 0 0.05” rpy=”0 0 0” /&gt;
+&lt;inertia ixx=”0.5” ixy=”0” ixz=”0” iyy=”0.5” iyz=”0” izz=”0.5” /&gt;</p>
+</div></blockquote>
+<p>&lt;/inertial&gt;
+&lt;collision&gt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link3.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</div></blockquote>
+<p>&lt;/collision&gt;</p>
+</div></blockquote>
+<p>&lt;/link&gt;</p>
+<dl class="simple">
+<dt>&lt;joint name=”joint3” type=”revolute”&gt;</dt><dd><p>&lt;parent link=”link4”/&gt;
+&lt;child link=”link3”/&gt;
+&lt;origin xyz=”0 0 0.05”/&gt;
+&lt;limit effort=”1000.0” lower=”-1.57” upper=”1.57” velocity=”0.5”/&gt;
+&lt;axis xyz=”0 0 1”/&gt;
+&lt;dynamics damping=”0.2” friction=”0.1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/joint&gt;</p>
+<p>&lt;!– Revolute Joint 4 –&gt;
+&lt;link name=”link4”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;visual&gt;</dt><dd><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link4.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/visual&gt;
+&lt;inertial&gt;</p>
+<blockquote>
+<div><p>&lt;mass value=”0.5” /&gt;
+&lt;origin xyz=”0 0 0.05” rpy=”0 0 0” /&gt;
+&lt;inertia ixx=”0.5” ixy=”0” ixz=”0” iyy=”0.5” iyz=”0” izz=”0.5” /&gt;</p>
+</div></blockquote>
+<p>&lt;/inertial&gt;
+&lt;collision&gt;</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;geometry&gt;</dt><dd><p>&lt;mesh filename=”link4.dae” scale=”1 1 1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/geometry&gt;
+&lt;origin xyz=”0 0 0.225”/&gt;</p>
+</div></blockquote>
+<p>&lt;/collision&gt;</p>
+</div></blockquote>
+<p>&lt;/link&gt;</p>
+<dl class="simple">
+<dt>&lt;joint name=”joint4” type=”revolute”&gt;</dt><dd><p>&lt;parent link=”base”/&gt;
+&lt;child link=”link4”/&gt;
+&lt;origin xyz=”0 0 0.05”/&gt;
+&lt;limit effort=”1000.0” lower=”-1.57” upper=”1.57” velocity=”0.5”/&gt;
+&lt;axis xyz=”0 0 1”/&gt;
+&lt;dynamics damping=”0.2” friction=”0.1” /&gt;</p>
+</dd>
+</dl>
+<p>&lt;/joint&gt;</p>
+</div></blockquote>
+<p>&lt;/robot&gt;</p>
+<blockquote>
+<div><p>}</p>
+</div></blockquote>
 </section>
 
 
