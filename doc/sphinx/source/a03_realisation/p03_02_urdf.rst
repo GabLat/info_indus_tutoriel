@@ -12,7 +12,6 @@ Les fichiers ont été regroupés dans un fichier URDF.
 
 .. code-block:: json
 
-   {
         <?xml version="1.0"?>
         <robot name="Pentograph">
 
@@ -167,4 +166,13 @@ Les fichiers ont été regroupés dans un fichier URDF.
 
         </robot>
 
-   }
+
+
+Cependant, le chargement des fichiers DAE s'est révélé infructueux.
+
+.. figure:: meshes/Erreurs_urdf.png
+    :align: center
+    :width: 50%
+    :alt: Raspberry Pi 5
+
+    Raspberry Pi 5 avec son module de refroidissement
