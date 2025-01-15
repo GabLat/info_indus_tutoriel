@@ -172,7 +172,7 @@ Cependant, le chargement des fichiers DAE s'est révélé infructueux.
 
 .. figure:: meshes/Erreurs_urdf.png
     :align: center
-    :width: 50%
-    :alt: Raspberry Pi 5
+    :width: 80%
+    :alt: erreur urdf
 
-    Raspberry Pi 5 avec son module de refroidissement
+    Message d'erreur lors du chargement de l'URDF
